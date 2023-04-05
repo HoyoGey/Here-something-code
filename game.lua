@@ -1,6 +1,7 @@
 local scripts = {
 	[893973440] = "https://raw.githubusercontent.com/HoyoGey/Here-something-code/main/supix/futf.lua",
-	[9872472334} = "https://raw.githubusercontent.com/HoyoGey/Here-something-code/main/supix/Evade.lua"
+	[9872472334} = "https://raw.githubusercontent.com/HoyoGey/Here-something-code/main/supix/Evade.lua",
+	[192800] = "https://raw.githubusercontent.com/HoyoGey/Here-something-code/main/supix/workatapizzasourceopen.lua"
 }
 
 
