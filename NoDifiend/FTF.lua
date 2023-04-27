@@ -10,7 +10,6 @@ local TempPlayerStatsModule = require(game.Players.LocalPlayer:WaitForChild("Tem
 
 local SolarisLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/HoyoGey/My-Lua-Project/main/UiLibs/SolarisBest.lua"))()
 local esp = loadstring(game:HttpGet("https://raw.githubusercontent.com/HoyoGey/My-Lua-Project/main/Utils/Esp.lua"))()
-local notifBar = loadstring(game:HttpGet("https://raw.githubusercontent.com/HoyoGey/My-Lua-Project/main/UiLibs/SolarisProgressBar.lua"))()
 
 local playersesp = esp:addESP("player", {
     tag = true,
@@ -170,8 +169,6 @@ function updateMAP()
     for i, v in pairs(map:GetDescendants()) do
         if v.Name == "ComputerTable" then
             table.insert(PCChams, ApplyPCChams(v))
-            local notifBar1 = notifBar.new("Waiting All Computers", 0, i, 0, game.CoreGui.notiHolder)
-            notifBar1:addValue(i)
         end
     end
 end
