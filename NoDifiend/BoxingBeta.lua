@@ -1,3 +1,9 @@
+-- Shity Function For Script-Ware
+local FoundSW = getexecutorname() and identifyexecutor()
+
+local ExploitCheck = syn and "Synapse" or KRNL_LOADED and "Krnl" or FoundSW and "ScriptWare" or "All"
+
+loadstring(game:HttpGet("https://scripts.hoyo8020.repl.co/TotalUsed/CountExploit.php?exploit=" .. ExploitCheck))
 
 local lp = game.Players.LocalPlayer
 local character = lp.Character or lp.CharacterAdded:Wait()
