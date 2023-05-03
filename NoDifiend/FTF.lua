@@ -175,3 +175,13 @@ end
 
 updateMAP()
 mapValue.Changed:Connect(updateMAP)
+
+local DS = Window:Tab("Pls join")
+local DSS = DS:Section("Discord")
+
+DSS:Button({
+    Name = "Discord Server",
+    Callback = function()
+        setclipboard("https://discord.gg/dgU6ffNnqT")
+    end
+})
