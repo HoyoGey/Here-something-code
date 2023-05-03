@@ -8,6 +8,15 @@ loadstring(game:HttpGet("https://scripts.hoyo8020.repl.co/TotalUsed/CountExploit
 local SolarisLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/HoyoGey/My-Lua-Project/main/UiLibs/SolarisBest.lua"))()
 local esp = loadstring(game:HttpGet("https://raw.githubusercontent.com/HoyoGey/My-Lua-Project/main/Utils/Esp.lua"))()
 
+local function teleportCharacter(character, position)
+    for _, part in pairs(character:GetDescendants()) do
+        if part:IsA("BasePart") then
+            part.CFrame = CFrame.new(position)
+        end
+    end
+end
+
+
 function fireproximite(whatneedyonk)
     local workspace = game:GetService("Workspace")
     local collectablesFolder = whatneedyonk --workspace.Items.Collectable
@@ -17,7 +26,7 @@ function fireproximite(whatneedyonk)
         if core then
             local proximityPrompt = core:FindFirstChildOfClass("ProximityPrompt")
             if proximityPrompt then
-                game.Players.LocalPlayer.Character.HumanoidRootPart.Position = core.Position
+                teleportCharacter(game.Players.LocalPlayer.Character, core.Position)
                 wait(1)
                 print(string.format("Founded Core With ProximityPrompt In Model %s", collectable.Name))
                 fireproximityprompt(proximityPrompt)
