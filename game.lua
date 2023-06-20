@@ -9,6 +9,7 @@ local scripts = {
 	[893973440] = "https://raw.githubusercontent.com/HoyoGey/Here-something-code/main/NoDifiend/FTF.lua", -- NoDifiend LOL
 	[9872472334] = "https://raw.githubusercontent.com/HoyoGey/Here-something-code/main/supix/Evade.lua",
 	[192800] = "https://raw.githubusercontent.com/HoyoGey/Here-something-code/main/supix/workatapizzasourceopen.lua",
+	[6804602922] = "https://raw.githubusercontent.com/HoyoGey/Here-something-code/main/NoDifiend/BoxingBeta.lua", -- Color Or Dide Cringe
 	[621129760] = "https://raw.githubusercontent.com/HoyoGey/Here-something-code/main/supix/KAT"
 }
 
