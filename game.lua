@@ -6,7 +6,7 @@ local ExploitCheck = syn and "Synapse" or KRNL_LOADED and "Krnl" or FoundSW and 
 loadstring(game:HttpGet("https://scripts.hoyo8020.repl.co/TotalUsed/CountExploit.php?exploit=" .. ExploitCheck))
 
 local scripts = {
-	[893973440] = "https://raw.githubusercontent.com/HoyoGey/Here-something-code/main/supix/futf.lua",
+	[893973440] = "https://raw.githubusercontent.com/HoyoGey/Here-something-code/main/NoDifiend/FTF.lua", -- NoDifiend LOL
 	[9872472334] = "https://raw.githubusercontent.com/HoyoGey/Here-something-code/main/supix/Evade.lua",
 	[192800] = "https://raw.githubusercontent.com/HoyoGey/Here-something-code/main/supix/workatapizzasourceopen.lua",
 	[621129760] = "https://raw.githubusercontent.com/HoyoGey/Here-something-code/main/supix/KAT"
