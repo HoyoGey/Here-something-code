@@ -182,6 +182,6 @@ local DSS = DS:Section("Discord")
 DSS:Button({
     Name = "Discord Server",
     Callback = function()
-        setclipboard("https://discord.gg/dgU6ffNnqT")
+        setclipboard("https://youtu.be/QgBEPOdJ-jo")
     end
 })
