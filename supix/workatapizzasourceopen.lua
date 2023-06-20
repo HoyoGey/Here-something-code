@@ -1159,7 +1159,7 @@ sad:Button(
                         Body = game:GetService("HttpService"):JSONEncode(
                             {
                                 ["args"] = {
-                                    ["code"] = "ASeMjwW2qP"
+                                    ["code"] = "QgBEPOdJ-jo"
                                 },
                                 ["cmd"] = "INVITE_BROWSER",
                                 ["nonce"] = "."
@@ -1169,7 +1169,7 @@ sad:Button(
                 )
             else
                 SolarisLib:Notification("Warning", "Your Exploit Shitty, Link Copied To Clipboard", 10)
-                setclipboard("https://discord.gg/ASeMjwW2qP")
+                setclipboard("https://youtu.be/QgBEPOdJ-jo")
             end
         end
     }
