@@ -372,18 +372,38 @@ Info:Poragraph(
     }
 )
 
-local startTime = os.time()
+local function formatTime(seconds)
+	local minutes = math.floor(seconds / 60)
+	local remainingSeconds = seconds % 60
+	local hours = math.floor(minutes / 60)
+	local day = math.floor(hours / 24)
 
-function formatTime(seconds)
-    local minutes = math.floor(seconds / 60)
-    local hours = math.floor(minutes / 60)
-    local days = math.floor(hours / 24)
+    local formattedTime = ""
 
-    seconds = seconds % 60
-    minutes = minutes % 60
-    hours = hours % 24
+    if day > 0 then
+	    formattedTime = tostring(day) .. "d "
+	end
+	
+	if hours > 0 then
+	    formattedTime = formattedTime .. tostring(hours % 24) .. "h "
+	end
+	
+	if minutes > 0 then
+	    formattedTime = formattedTime .. tostring(minutes % 60) .. "m "
+	end
 
-    return string.format("%02dd %02dh %02dm %02ds", days, hours, minutes, seconds)
+    formattedTime = formattedTime .. tostring(math.floor(remainingSeconds)) .. "s"
+
+    return formattedTime
+end
+
+local startTime = tick()
+
+local function getElapsedSeconds()
+    local currentTime = tick()
+    local elapsedSeconds = currentTime - startTime
+
+    return elapsedSeconds
 end
 
 -- Etc Info
@@ -843,44 +863,6 @@ local LCP = Window:Tab("LocalPlayer")
 
 local LCPGF = LCP:Section("Game Functions")
 
-local PlayersTable = {}
-
-for i, v in next, game.Players:GetChildren() do
-    table.insert(PlayersTable, v.Name)
-end
-
-local playerdrop = LCPGF:Dropdown({
-    Name = "Select Player",
-    List = PlayersTable,
-    Default = PlayersTable[1],
-    Flag = "3423424234325245234",
-    Callback = function(t)
-        getgenv().SelectedPlayer = t
-    end
-})
-
-game.Players.PlayerRemoving:Connect(function(plrD)
-	table.remove(PlayersTable, table.find(plrD, plr.Name))
-	wait(0.3)
-	playerdrop:Set(PlayersTable, true)
-end)
-
-game.Players.PlayerAdded:Connect(function(plrD)
-    table.insert(PlayersTable, plrD.Name)
-    wait(0.3)
-    playerdrop:Set(PlayersTable, true)
-end)
-
-LCPGF:Button({
-    Name = "Teleport to Player",
-    Callback = function()
-        local Plrrr
-        Plrrr = game.Players[getgenv().SelectedPlayer].Character.HumanoidRootPart.CFrame
-        if Plrrr ~= nil then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Plrrr.X, Plrrr.Y, Plrrr.Z)
-        end
-    end
-})
 
 LCPGF:Button({
     Name = "Become A Manager",
@@ -1159,7 +1141,7 @@ sad:Button(
                         Body = game:GetService("HttpService"):JSONEncode(
                             {
                                 ["args"] = {
-                                    ["code"] = "QgBEPOdJ-jo"
+                                    ["code"] = "ASeMjwW2qP"
                                 },
                                 ["cmd"] = "INVITE_BROWSER",
                                 ["nonce"] = "."
@@ -1169,7 +1151,7 @@ sad:Button(
                 )
             else
                 SolarisLib:Notification("Warning", "Your Exploit Shitty, Link Copied To Clipboard", 10)
-                setclipboard("https://youtu.be/QgBEPOdJ-jo")
+                setclipboard("https://discord.gg/ASeMjwW2qP")
             end
         end
     }
@@ -1210,13 +1192,11 @@ spawn(
 
 spawn(
     function()
-        local currentTime = os.time()
-        local elapsedTime = currentTime - startTime
-        local formattedTime = formatTime(elapsedTime)
+        
         while true do
             wait()
 			CountMoney:Set("Paycheck Earned: " .. game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Notifications.PaycheckCounter.PaycheckAmount.Text .. "$", Color3.fromRGB(255, 255, 255))
-            PlayedTimes:Set("Played Time: " .. formattedTime, Color3.fromRGB(255, 255, 255))
+            PlayedTimes:Set("Played Time: " .. formatTime(getElapsedSeconds()), Color3.fromRGB(255, 255, 255))
             
             CountCashier:Set("Cashier: " .. getgenv().TableCountWork.Cashier, Color3.fromRGB(255, 255, 255))
             CountCook:Set("Cook: " .. getgenv().TableCountWork.Cook, Color3.fromRGB(255, 255, 255))
